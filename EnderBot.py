@@ -9,6 +9,11 @@ bot = commands.Bot ("?")
 async def on_ready():
     print("Bot online")
 
+await
+ bot.change_presence(activity=discord.
+Game('Watching Pewdiepie'),
+ status='idle')
+
 
 @bot.command(pass_context=True)
 async def ping(ctx):
