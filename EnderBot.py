@@ -1,6 +1,7 @@
 import discord
 from discord.ext import commands, tasks
 from discord.ext.commands import when_mentioned_or
+from discord.utils import get
 import random
 import asyncio
 import os
@@ -88,20 +89,33 @@ async def clear(ctx, amount: int):
     """Clears the amount of messages that you filled in."""
     await ctx.channel.purge(limit=amount + 1)
 
-@clear.error
-async def clear_error(ctx, error):
-    if isinstance(error, commands.MissingRequiredArgument):
-        await ctx.send("You need to specify an amount of messages you want to delete.")
-    if isinstance(error, commands.BadArgument):
-        await ctx.send("Give an intiger.")
-
-    raise error
-
 async def chng_pr():
     await bot.wait_until_ready()
 
     await bot.change_presence(activity=discord.Game('with Pewdiepie'))
 
 bot.loop.create_task(chng_pr())
+
+@bot.event
+async def on_command_error(ctx, error):
+    if isinstance(error, commands.CommandNotFound):
+        embed = discord.Embed(title="Error:",
+                              description=f"The command `{ctx.invoked_with}` was not found! We suggest you do `?help` to see all of the commands",
+                              colour=0xe73c24)
+        await ctx.send(embed=embed)
+    elif isinstance(error, commands.MissingRole):
+        roleid = error.missing_role
+        roleobj = get(error.guild.roles, id=roleid)
+        rolename = roleobj.name
+        embed = discord.Embed(title="Error:",
+                              description=f"You don't have permission to execute `{ctx.invoked_with}`, this requires the `{rolename}` role to be executed",
+                              colour=0xe73c24)
+        await ctx.send(embed=embed)
+    else:
+        embed = discord.Embed(title="Error:",
+                              description=f"`{error}`",
+                              colour=0xe73c24)
+        await ctx.send(embed=embed)
+        raise error
     
 bot.run(os.getenv('TOKEN'))
