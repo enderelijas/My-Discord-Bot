@@ -1,1 +1,1 @@
-worker: EnderBot.py
+worker: bot.py
