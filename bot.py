@@ -20,7 +20,9 @@ async def on_ready():
 
 bot.remove_command('help')
 
-on_message():
+@bot.event
+on_message(message):
+    
     if "creeper" in message.content:
         await message.channel.send('aww man')
 
