@@ -28,7 +28,7 @@ async def ping(ctx):
     embed.set_footer(text=f"Request by {ctx.author}", icon_url=ctx.author.avatar_url)
     await ctx.send(embed=embed)
     
-@bot.command()
+@bot.command(name="creeper")
 async def creeper(ctx):
     message = ctx.message
     if not message.author.bot:
