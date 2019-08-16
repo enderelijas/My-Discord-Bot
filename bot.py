@@ -20,12 +20,6 @@ async def on_ready():
 
 bot.remove_command('help')
 
-@bot.event
-async def on_message(message):
-    if "creeper" in message.content:
-        await message.channel.send('aww man')
-    await bot.process_commands(message)
-
 @bot.command()
 async def creeper(ctx):
     await ctx.send('aww man')
@@ -124,5 +118,10 @@ async def on_command_error(ctx, error):
                               colour=0xe73c24)
         await ctx.send(embed=embed)
         raise error
+
+@bot.event
+async def on_message(message):
+    if "creeper" in message.content:
+        await message.channel.send('aww man')
         
 bot.run(os.getenv('TOKEN'))
