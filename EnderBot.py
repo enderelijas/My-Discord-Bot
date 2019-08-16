@@ -106,4 +106,4 @@ async def chng_pr():
 
 bot.loop.create_task(chng_pr())
     
-bot.run(os.getenv('TOKEN1'))
+bot.run(os.getenv('TOKEN'))
