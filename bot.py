@@ -83,7 +83,11 @@ async def help(ctx):
     otherembed.add_field(
         name="?help", value="Gives this message.", inline=False)
     otherembed.set_footer(
-        name="?Creeper", value="Aww Man.", inline=False)
+        name="?creeper", value="Aww Man.", inline=False)
+    otherembed.set_footer(
+        name="?add", value="Adds 2 numbers.", inline=False)
+    otherembed.set_footer(
+        name="?multiply", value="Multiply 2 numbers.", inline=False)
     otherembed.set_footer(
         text=f"Request by {ctx.author}", icon_url=ctx.author.avatar_url)
 
@@ -122,12 +126,23 @@ async def on_command_error(ctx, error):
         raise error
 
 @bot.event
+async def creeper(ctx):
+    if "creeper" in message.content:
+        await message.channel.send('aww man')
+        
+@bot.event
 async def on_message(message):
     if "creeper" in message.content:
         await message.channel.send('aww man')
 
-@bot.command() 
+@bot.command()
+async def add(ctx, a: int, b: int):
+    """Adds 2 numbers together."""
+    await ctx.send(a+b)
+    
+@bot.command()
 async def multiply(ctx, a: int, b: int):
- await ctx.send(a*b)
+    """Multiplies 2 numbers."""
+    await ctx.send(a*b)
         
 bot.run(os.getenv('TOKEN'))
