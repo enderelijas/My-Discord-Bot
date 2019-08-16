@@ -5,14 +5,11 @@ import random
 
 bot = commands.Bot ("?")
 
+await bot.change_presence(activity=discord.Game('Watching Pewdiepie'), status='idle')
+
 @bot.event
 async def on_ready():
     print("Bot online")
-
-await
- bot.change_presence(activity=discord.
-Game('Watching Pewdiepie'),
- status='idle')
 
 
 @bot.command(pass_context=True)
@@ -21,4 +18,4 @@ async def ping(ctx):
 
 
 
-bot.run("NTY1OTUxNDYyNDkzMTI2NjY3.XOmMJA.a4WTS6oh34ppT29-JGtARcfmQM4")
+bot.run(os.getenv('TOKEN'))
