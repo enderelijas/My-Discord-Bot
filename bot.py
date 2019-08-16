@@ -117,7 +117,7 @@ async def on_command_error(ctx, error):
         raise error
 
 @bot.event
-async def on_message(message):
+async def on_message(ctx, message):
     channel = ctx.message.channel
     if bot.user.id != message.author.id:
         if 'creeper' in message.content:
