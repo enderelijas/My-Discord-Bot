@@ -97,7 +97,7 @@ async def clear(ctx, amount: int):
 
 async def chng_pr():
     await bot.wait_until_ready()
-    await bot.change_presence(activity=discord.Activity(name=" _users_", type=3))  
+    await bot.change_presence(activity=discord.Activity(name="Pewdiepie", type=3))  
 
 bot.loop.create_task(chng_pr())
 
@@ -125,10 +125,6 @@ async def on_command_error(ctx, error):
 async def on_message(message):
     if "creeper" in message.content:
         await message.channel.send('aww man')
-
-@bot.command()
- async def add(ctx, a: int, b: int): 
-await ctx.send(a+b)
 
 @bot.command() 
 async def multiply(ctx, a: int, b: int):
