@@ -27,4 +27,4 @@ async def ping(ctx):
 
 
 
-bot.run(os.getenv('TOKEN'))
+bot.run(os.getenv('TOKEN1'))
