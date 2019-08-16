@@ -18,6 +18,8 @@ async def on_ready():
     print('--------------------')
     return
 
+bot.remove_command('help')
+  
 @bot.command()
 async def ping(ctx):
     """Pings the bot."""
