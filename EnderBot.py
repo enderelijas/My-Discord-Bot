@@ -51,4 +51,31 @@ async def kick(ctx, member: discord.Member, *, reason='No reason provided.'):
     await ctx.message.delete()  # Delete The Message
     await ctx.send('member has been kicked.')
 
+@bot.command()
+async def help(ctx):
+    embed = discord.Embed(
+        title="Enderbot", description="Moderation Commands:", color=0x9300FF)
+    embed.set_thumbnail(
+        url='https://www.emoji.co.uk/files/mozilla-emojis/objects-mozilla/11879-hammer.png')
+    embed.add_field(
+        name="?kick", value="Kicks a member.", inline=False)
+    embed.add_field(
+        name="?ban", value="Bans a member.", inline=False)
+    
+    await ctx.send(embed=embed)
+
+    otherembed = discord.Embed(
+        title="Egroid", description="Other Commands:", color=0xA121FF)
+
+    otherembed.set_thumbnail(
+        url='https://images.emojiterra.com/twitter/v12/512px/1f3d3.png')
+    otherembed.add_field(
+        name="?ping", value="Pings the bot.", inline=False)
+    otherembed.add_field(
+        name="?help", value="Gives this message.", inline=False)
+    otherembed.set_footer(
+        text=f"Request by {ctx.author}", icon_url=ctx.author.avatar_url)
+
+    await ctx.send(embed=otherembed)
+    
 bot.run(os.getenv('TOKEN1'))
