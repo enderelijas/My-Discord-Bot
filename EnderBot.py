@@ -1,12 +1,13 @@
 import discord
-from discord.ext import commands
+from discord.ext import commands, tasks
+from discord.ext.commands import when_mentioned_or
 import random
 import os
 
+bot = commands.Bot(when_mentioned_or("?"))
 
-bot = commands.Bot ("?")
-
-await bot.change_presence(activity=discord.Game('Watching Pewdiepie'), status='idle')
+async def chng_pr():
+  await bot.change_presence(activity=discord.Game('Watching Pewdiepie'), status='idle')
 
 @bot.event
 async def on_ready():
@@ -16,7 +17,6 @@ async def on_ready():
     print(bot.user.id)
     print('--------------------')
     return
-
 
 @bot.command()
 async def ping(ctx):
