@@ -1,6 +1,7 @@
 import discord
 from discord.ext import commands
 import random
+import os
 
 
 bot = commands.Bot ("?")
@@ -12,9 +13,12 @@ async def on_ready():
     print("Bot online")
 
 
-@bot.command(pass_context=True)
+@bot.command()
 async def ping(ctx):
-    await ctx.send("Pong :stuck_out_tongue_closed_eyes: ")
+    """Pings the bot."""
+    embed = discord.Embed(colour=0x00FF00)
+    embed.add_field(name="Ping", value=f'🏓 {round(bot.latency * 1000)}ms')
+    await ctx.send(embed=embed)
 
 
 
