@@ -118,9 +118,10 @@ async def on_command_error(ctx, error):
 
 @bot.event
 async def on_message(message):
+    channel = ctx.message.channel
     if bot.user.id != message.author.id:
         if 'creeper' in message.content:
-            await bot.send_message(message.channel, 'aww man')
+            await channel.send(, 'aww man')
             
     await client.process_commands(message)
         
