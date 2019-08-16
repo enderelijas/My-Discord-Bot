@@ -11,8 +11,6 @@ bot = commands.Bot(when_mentioned_or("?"))
 
 @bot.event
 async def on_ready():
-    if "creeper" in message.content:
-        await message.channel.send('aww man')
     print("--------------------")
     print('Logged in as')
     print(bot.user.name)
@@ -21,6 +19,11 @@ async def on_ready():
     return
 
 bot.remove_command('help')
+
+@bot.event
+async def on_message():
+    if "creeper" in message.content:
+        await message.channel.send('aww man')
 
 @bot.command()
 async def ping(ctx):
