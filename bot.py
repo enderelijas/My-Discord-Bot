@@ -116,7 +116,7 @@ async def on_command_error(ctx, error):
         await ctx.send(embed=embed)
         raise error
 
- @bot.event
+@bot.event
 async def on_message(message):
     if bot.user.id != message.author.id:
         if 'creeper' in message.content:
