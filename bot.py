@@ -93,7 +93,7 @@ async def clear(ctx, amount: int):
 async def chng_pr():
     await bot.wait_until_ready()
 
-    await bot.change_presence(activity=discord.Game('with Pewdiepie'))
+   await <Client>.change_presence(activity=discord.Activity(name="Pewdiepie", type=3))  
 
 bot.loop.create_task(chng_pr())
 
@@ -117,19 +117,6 @@ async def on_command_error(ctx, error):
         await ctx.send(embed=embed)
         raise error
 
-async def chng_pr():
-    await bot.wait_until_ready()
-
-    statuses = ["with PewDiePie", "Minecraft", 'support', f"with {len(list(bot.get_all_members()))} users"]
-    statuses = cycle(statuses)
-
-    while not bot.is_closed():
-        status = next(statuses)
-
-        await bot.change_presence(activity=discord.Game(status))
-
-        await asyncio.sleep(15)
-
-bot.loop.create_task(chng_pr()) 
+ 
         
 bot.run(os.getenv('TOKEN'))
