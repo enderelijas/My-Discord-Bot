@@ -2,11 +2,12 @@ import discord
 from discord.ext import commands, tasks
 from discord.ext.commands import when_mentioned_or
 from discord.utils import get
+from itertools import cycle
 import random
 import asyncio
 import os
 
-bot = commands.Bot(when_mentioned_or("s!"))
+bot = commands.Bot(when_mentioned_or("?"))
 
 @bot.event
 async def on_ready():
@@ -61,11 +62,11 @@ async def help(ctx):
     embed.set_thumbnail(
         url='https://www.emoji.co.uk/files/mozilla-emojis/objects-mozilla/11879-hammer.png')
     embed.add_field(
-        name="s!kick", value="Kicks a member.", inline=False)
+        name="?kick", value="Kicks a member.", inline=False)
     embed.add_field(
-        name="s!ban", value="Bans a member.", inline=False)
+        name="?ban", value="Bans a member.", inline=False)
     embed.add_field(
-        name="s!clear", value="Clears the amount of messages that you specified in.", inline=False)
+        name="?clear", value="Clears the amount of messages that you specified in.", inline=False)
     
     await ctx.send(embed=embed)
 
@@ -115,5 +116,20 @@ async def on_command_error(ctx, error):
                               colour=0xe73c24)
         await ctx.send(embed=embed)
         raise error
-    
+
+async def chng_pr():
+    await bot.wait_until_ready()
+
+    statuses = ["with PewDiePie", "Minecraft", 'support', f"with {len(list(bot.get_all_members()))} users"]
+    statuses = cycle(statuses)
+
+    while not bot.is_closed():
+        status = next(statuses)
+
+        await bot.change_presence(activity=discord.Game(status))
+
+        await asyncio.sleep(15)
+
+bot.loop.create_task(chng_pr()) 
+        
 bot.run(os.getenv('TOKEN'))
