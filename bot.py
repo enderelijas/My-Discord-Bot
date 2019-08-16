@@ -125,5 +125,13 @@ async def on_command_error(ctx, error):
 async def on_message(message):
     if "creeper" in message.content:
         await message.channel.send('aww man')
+
+@bot.command()
+ async def add(ctx, a: int, b: int): 
+await ctx.send(a+b)
+
+@bot.command() 
+async def multiply(ctx, a: int, b: int):
+ await ctx.send(a*b)
         
 bot.run(os.getenv('TOKEN'))
