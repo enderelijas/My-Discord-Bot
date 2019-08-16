@@ -18,10 +18,6 @@ async def on_ready():
     print('--------------------')
     return
 
-@bot.command()
-async def Creeper(ctx):
-    await ctx.send('Aww man')
-
 bot.remove_command('help')
 
 @bot.command()
@@ -31,7 +27,7 @@ async def ping(ctx):
     embed.add_field(name="Ping", value=f'🏓 {round(bot.latency * 1000 / 2)}ms')
     embed.set_footer(text=f"Request by {ctx.author}", icon_url=ctx.author.avatar_url)
     await ctx.send(embed=embed)
-
+    
     
 @bot.command()
 @commands.has_role(567737541546082304)
@@ -120,6 +116,12 @@ async def on_command_error(ctx, error):
         await ctx.send(embed=embed)
         raise error
 
- 
+ @bot.event
+async def on_message(message):
+    if bot.user.id != message.author.id:
+        if 'creeper' in message.content:
+            await bot.send_message(message.channel, 'aww man')
+            
+    await client.process_commands(message)
         
 bot.run(os.getenv('TOKEN'))
