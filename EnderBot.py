@@ -1,8 +1,6 @@
 import discord
 from discord.ext import commands, tasks
 from discord.ext.commands import when_mentioned_or
-from webserver import keep_alive
-from itertools import cycle
 import random
 import asyncio
 import os
