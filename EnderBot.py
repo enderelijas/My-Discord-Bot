@@ -1,13 +1,13 @@
 import discord
 from discord.ext import commands, tasks
 from discord.ext.commands import when_mentioned_or
+from webserver import keep_alive
+from itertools import cycle
 import random
+import asyncio
 import os
 
 bot = commands.Bot(when_mentioned_or("?"))
-
-async def chng_pr():
-  await bot.change_presence(activity=discord.Game('Watching Pewdiepie'), status='idle')
 
 @bot.event
 async def on_ready():
@@ -19,15 +19,16 @@ async def on_ready():
     return
 
 bot.remove_command('help')
-  
+
 @bot.command()
 async def ping(ctx):
     """Pings the bot."""
     embed = discord.Embed(colour=0x00FF00)
-    embed.add_field(name="Ping", value=f'🏓 {round(bot.latency * 1000)}ms')
+    embed.add_field(name="Ping", value=f'🏓 {round(bot.latency * 1000 / 2)}ms')
     embed.set_footer(text=f"Request by {ctx.author}", icon_url=ctx.author.avatar_url)
     await ctx.send(embed=embed)
 
+    
 @bot.command()
 @commands.has_role(567737541546082304)
 async def ban(ctx, member: discord.Member, *, reason='No reason provided.'):
@@ -64,6 +65,8 @@ async def help(ctx):
         name="?kick", value="Kicks a member.", inline=False)
     embed.add_field(
         name="?ban", value="Bans a member.", inline=False)
+    embed.add_field(
+        name="?clear", value="Clears the amount of messages that you specified in.", inline=False)
     
     await ctx.send(embed=embed)
 
@@ -80,5 +83,27 @@ async def help(ctx):
         text=f"Request by {ctx.author}", icon_url=ctx.author.avatar_url)
 
     await ctx.send(embed=otherembed)
+
+@bot.command()
+@commands.has_role(567737541546082304)
+async def clear(ctx, amount: int):
+    """Clears the amount of messages that you filled in."""
+    await ctx.channel.purge(limit=amount + 1)
+
+@clear.error
+async def clear_error(ctx, error):
+    if isinstance(error, commands.MissingRequiredArgument):
+        await ctx.send("You need to specify an amount of messages you want to delete.")
+    if isinstance(error, commands.BadArgument):
+        await ctx.send("Give an intiger.")
+
+    raise error
+
+async def chng_pr():
+    await bot.wait_until_ready()
+
+    await bot.change_presence(activity=discord.Game('with Pewdiepie'))
+
+bot.loop.create_task(chng_pr())
     
 bot.run(os.getenv('TOKEN1'))
