@@ -20,9 +20,9 @@ async def on_ready():
 
 bot.remove_command('help')
 
-@bot.event
-async def on_message("creeper"):
-    await message.channel.send('aww man')
+on_message():
+    if "creeper" in message.content:
+        await message.channel.send('aww man')
 
 @bot.command()
 async def ping(ctx):
