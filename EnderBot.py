@@ -28,8 +28,7 @@ async def ping(ctx):
 @bot.command()
 @commands.has_role(567737541546082304)
 async def ban(ctx, member: discord.Member, *, reason='No reason provided.'):
-    dm = discord.Embed(title="You have been banned from `Ender Network`!",
-                        description="Details about the ban:", color=embcolor)
+    dm = discord.Embed(title="You have been banned from `Ender Network`!", color=0xFF0000)
     dm.add_field(name="Moderator:",
                     value=ctx.message.author.display_name)
     dm.add_field(name="Reason:", value=f"{reason}")
@@ -43,7 +42,7 @@ async def ban(ctx, member: discord.Member, *, reason='No reason provided.'):
 @commands.has_role(567737541546082304)
 async def kick(ctx, member: discord.Member, *, reason='No reason provided.'):
     dm = discord.Embed(
-        color=embcolor, title="You have been kicked from `Ender Network`!")
+        color=embcolor, title="You have been kicked from `Ender Network`!", color=0xFF0000)
     dm.set_thumbnail(url=member.avatar_url)
     dm.add_field(name="Reason:", value=f"{reason}")
     dm.add_field(name="Moderator:",
