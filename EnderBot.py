@@ -10,7 +10,12 @@ await bot.change_presence(activity=discord.Game('Watching Pewdiepie'), status='i
 
 @bot.event
 async def on_ready():
-    print("Bot online")
+    print("--------------------")
+    print('Logged in as')
+    print(bot.user.name)
+    print(bot.user.id)
+    print('--------------------')
+    return
 
 
 @bot.command()
