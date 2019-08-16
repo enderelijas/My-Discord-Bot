@@ -61,11 +61,11 @@ async def help(ctx):
     embed.set_thumbnail(
         url='https://www.emoji.co.uk/files/mozilla-emojis/objects-mozilla/11879-hammer.png')
     embed.add_field(
-        name="?kick", value="Kicks a member.", inline=False)
+        name="s!kick", value="Kicks a member.", inline=False)
     embed.add_field(
-        name="?ban", value="Bans a member.", inline=False)
+        name="s!ban", value="Bans a member.", inline=False)
     embed.add_field(
-        name="?clear", value="Clears the amount of messages that you specified in.", inline=False)
+        name="s!clear", value="Clears the amount of messages that you specified in.", inline=False)
     
     await ctx.send(embed=embed)
 
