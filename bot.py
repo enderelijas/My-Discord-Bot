@@ -121,7 +121,7 @@ async def on_message(message):
     channel = ctx.message.channel
     if bot.user.id != message.author.id:
         if 'creeper' in message.content:
-            await channel.send(, 'aww man')
+            await channel.send('aww man')
             
     await client.process_commands(message)
         
