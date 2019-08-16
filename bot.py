@@ -42,7 +42,7 @@ async def ban(ctx, member: discord.Member, *, reason='No reason provided.'):
     dm.set_thumbnail(url=member.avatar_url)
     await member.send(embed=dm)  # Send DM
     await member.ban(reason=reason)  # Ban
-    await ctx.message.delete()  # Delete The Message
+    await ctx.message.delte()  # Delete The Message
     await ctx.send('member has been banned.')
     
 @bot.command()
@@ -83,6 +83,8 @@ async def help(ctx):
     otherembed.add_field(
         name="?help", value="Gives this message.", inline=False)
     otherembed.set_footer(
+        name="?Creeper", value="Aww Man.", inline=False)
+    otherembed.set_footer(
         text=f"Request by {ctx.author}", icon_url=ctx.author.avatar_url)
 
     await ctx.send(embed=otherembed)
@@ -95,7 +97,7 @@ async def clear(ctx, amount: int):
 
 async def chng_pr():
     await bot.wait_until_ready()
-    await bot.change_presence(activity=discord.Activity(name=" with Pewdiepie", type=1))  
+    await bot.change_presence(activity=discord.Activity(name=" with Pewdiepie", type=0))  
 
 bot.loop.create_task(chng_pr())
 
