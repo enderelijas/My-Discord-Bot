@@ -37,7 +37,7 @@ async def ban(ctx, member: discord.Member, *, reason='No reason provided.'):
     await member.send(embed=dm)  # Send DM
     await member.ban(reason=reason)  # Ban
     await ctx.message.delete()  # Delete The Message
-    await ctx.send('The user has been banned.')
+    await ctx.send('member has been banned.')
     
 @bot.command()
 @commands.has_role(567737541546082304)
@@ -51,6 +51,6 @@ async def kick(ctx, member: discord.Member, *, reason='No reason provided.'):
     await member.send(embed=dm)  # Send DM
     await member.kick(reason=reason)  # Kick
     await ctx.message.delete()  # Delete The Message
-    await ctx.send('✅ Moderation action completed')
+    await ctx.send('member has been kicked.')
 
 bot.run(os.getenv('TOKEN1'))
