@@ -23,7 +23,12 @@ bot.remove_command('help')
 @bot.command()
 async def creeper(ctx):
     await ctx.send('aww man')
-        
+
+@client.command()
+async def add(ctx, left : int, right : int):
+    """Adds Two Numbers."""
+    await ctx.send(left + right)
+
 @bot.command()
 async def ping(ctx):
     """Pings the bot."""
@@ -97,7 +102,7 @@ async def clear(ctx, amount: int):
 
 async def chng_pr():
     await bot.wait_until_ready()
-    await bot.change_presence(activity=discord.Activity(name=" _users_", type=3))  
+    await bot.change_presence(activity=discord.Activity(name=" with Pewdiepie", type=0))  
 
 bot.loop.create_task(chng_pr())
 
