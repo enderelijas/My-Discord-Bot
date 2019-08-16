@@ -28,6 +28,14 @@ async def ping(ctx):
     embed.set_footer(text=f"Request by {ctx.author}", icon_url=ctx.author.avatar_url)
     await ctx.send(embed=embed)
     
+@bot.command()
+async def creeper(ctx):
+    message = ctx.message
+    if not message.author.bot:
+        if message.content.startswith("creeper"):
+            await ctx.send('aww man')
+        else:
+            return
     
 @bot.command()
 @commands.has_role(567737541546082304)
@@ -115,14 +123,5 @@ async def on_command_error(ctx, error):
                               colour=0xe73c24)
         await ctx.send(embed=embed)
         raise error
-
-@bot.event
-async def on_message(ctx, message):
-    channel = ctx.message.channel
-    if bot.user.id != message.author.id:
-        if 'creeper' in message.content:
-            await channel.send('aww man')
-            
-    await client.process_commands(message)
         
 bot.run(os.getenv('TOKEN'))
