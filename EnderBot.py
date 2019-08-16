@@ -25,6 +25,7 @@ async def ping(ctx):
     """Pings the bot."""
     embed = discord.Embed(colour=0x00FF00)
     embed.add_field(name="Ping", value=f'🏓 {round(bot.latency * 1000)}ms')
+    embed.set_footer(text=f"Request by {ctx.author}", icon_url=ctx.author.avatar_url)
     await ctx.send(embed=embed)
 
 @bot.command()
