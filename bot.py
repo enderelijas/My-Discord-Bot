@@ -18,6 +18,10 @@ async def on_ready():
     print('--------------------')
     return
 
+@bot.command()
+async def Creeper(ctx):
+    await ctx.send('Aww man')
+
 bot.remove_command('help')
 
 @bot.command()
