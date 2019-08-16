@@ -6,7 +6,7 @@ import random
 import asyncio
 import os
 
-bot = commands.Bot(when_mentioned_or("?"))
+bot = commands.Bot(when_mentioned_or("s!"))
 
 @bot.event
 async def on_ready():
