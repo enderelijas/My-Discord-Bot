@@ -57,7 +57,7 @@ async def kick(ctx, member: discord.Member, *, reason='No reason provided.'):
 @bot.command()
 async def help(ctx):
     embed = discord.Embed(
-        title="Enderbot", description="Moderation Commands:", color=0x9300FF)
+        title="Enderbot", description="Moderation Commands:", color=0xFF0000)
     embed.set_thumbnail(
         url='https://www.emoji.co.uk/files/mozilla-emojis/objects-mozilla/11879-hammer.png')
     embed.add_field(
@@ -68,7 +68,7 @@ async def help(ctx):
     await ctx.send(embed=embed)
 
     otherembed = discord.Embed(
-        title="Egroid", description="Other Commands:", color=0xA121FF)
+        title="Enderbot", description="Other Commands:", color=0xFF0000)
 
     otherembed.set_thumbnail(
         url='https://images.emojiterra.com/twitter/v12/512px/1f3d3.png')
