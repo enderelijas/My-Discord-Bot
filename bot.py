@@ -48,7 +48,7 @@ async def ban(ctx, member: discord.Member, *, reason='No reason provided.'):
 @bot.command()
 @commands.has_role(567737541546082304)
 async def kick(ctx, member: discord.Member, *, reason='No reason provided.'):
-    dm = discord.Embed(title="You have been kicked from `Ender Network`!", color=0xFF0000)
+    dm = discord.Embed(title="You have been kicked from `Ender Network`!", color=AA00FF)
     dm.set_thumbnail(url=member.avatar_url)
     dm.add_field(name="Reason:", value=f"{reason}")
     dm.add_field(name="Moderator:",
