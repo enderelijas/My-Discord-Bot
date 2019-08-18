@@ -26,7 +26,7 @@ async def creeper(ctx):
         
 @bot.command()
 async def ping(ctx):
-    embed = discord.Embed(colour=#0x00FF00)
+    embed = discord.Embed(colour=0x00FF00)
     embed.add_field(name="Ping", value=f'🏓 {round(bot.latency * 1000 / 2)}ms')
     embed.set_footer(text=f"Request by {ctx.author}", icon_url=ctx.author.avatar_url)
     await ctx.send(embed=embed)
@@ -100,7 +100,7 @@ async def clear(ctx, amount: int):
 
 async def chng_pr():
     await bot.wait_until_ready()
-    await bot.change_presence(activity=discord.Activity(name="Pewdiepie", type=3))  
+    await bot.change_presence(activity=discord.Activity(name="Pewdiepie", type=3), status='idle')  
 
 bot.loop.create_task(chng_pr())
 
