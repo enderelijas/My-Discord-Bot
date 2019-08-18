@@ -79,10 +79,9 @@ async def help(ctx):
         url='https://images.emojiterra.com/twitter/v12/512px/1f3d3.png')
     otherembed.add_field(name="?ping", value="Pings the bot.", inline=False)
     otherembed.add_field(name="?help", value="Gives this message.", inline=False)
-    otherembed.set_footer(name="?add", value="Adds 2 numbers.", inline=False)
-    otherembed.set_footer(name="?multiply", value="Multiply 2 numbers.", inline=False)
-    otherembed.set_footer(
-        text=f"Request by {ctx.author}", icon_url=ctx.author.avatar_url)
+    otherembed.add_field(name="?add", value="Adds 2 numbers.", inline=False)
+    otherembed.add_field(name="?multiply", value="Multiply 2 numbers.", inline=False)
+    otherembed.set_footer(text=f"Request by {ctx.author}", icon_url=ctx.author.avatar_url)
 
     await ctx.send(embed=otherembed)
 
