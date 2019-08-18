@@ -27,7 +27,7 @@ async def creeper(ctx):
 @bot.command()
 async def ping(ctx):
     """Pings the bot."""
-    embed = discord.Embed(colour=0x00FF00)
+    embed = discord.Embed(colour=#0x00FF00)
     embed.add_field(name="Ping", value=f'🏓 {round(bot.latency * 1000 / 2)}ms')
     embed.set_footer(text=f"Request by {ctx.author}", icon_url=ctx.author.avatar_url)
     await ctx.send(embed=embed)
@@ -48,7 +48,7 @@ async def ban(ctx, member: discord.Member, *, reason='No reason provided.'):
 @bot.command()
 @commands.has_role(567737541546082304)
 async def kick(ctx, member: discord.Member, *, reason='No reason provided.'):
-    dm = discord.Embed(title="You have been kicked from `Ender Network`!", color=AA00FF)
+    dm = discord.Embed(title="You have been kicked from `Ender Network`!", color=#0xAA00FF)
     dm.set_thumbnail(url=member.avatar_url)
     dm.add_field(name="Reason:", value=f"{reason}")
     dm.add_field(name="Moderator:",
@@ -61,7 +61,7 @@ async def kick(ctx, member: discord.Member, *, reason='No reason provided.'):
 @bot.command()
 async def help(ctx):
     embed = discord.Embed(
-        title="Enderbot", description="Moderation Commands:", color=0x00AAFF)
+        title="Enderbot", description="Moderation Commands:", color=#0x00AAFF)
     embed.set_thumbnail(
         url='https://www.emoji.co.uk/files/mozilla-emojis/objects-mozilla/11879-hammer.png')
     embed.add_field(
@@ -74,7 +74,7 @@ async def help(ctx):
     await ctx.send(embed=embed)
 
     otherembed = discord.Embed(
-        title="Enderbot", description="Other Commands:", color=0x00AAFF)
+        title="Enderbot", description="Other Commands:", color=#0x00AAFF)
 
     otherembed.set_thumbnail(
         url='https://images.emojiterra.com/twitter/v12/512px/1f3d3.png')
