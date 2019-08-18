@@ -128,12 +128,12 @@ async def on_command_error(ctx, error):
 async def creeper(ctx):
     if "creeper" in message.content:
         await message.channel.send('aww man!')
-        await bot.process_commands(message)
         
 @bot.event
 async def on_message(message):
     if "creeper" in message.content:
         await message.channel.send('aww man')
+        await bot.process_commands(message)
 
 @bot.command()
 async def add(ctx, a: int, b: int):
