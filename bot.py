@@ -22,7 +22,7 @@ bot.remove_command('help')
 
 @bot.command()
 async def creeper(ctx):
-    await ctx.send('aww man')
+    await ctx.send('Aww Man!')
         
 @bot.command()
 async def ping(ctx):
