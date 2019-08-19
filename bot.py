@@ -21,7 +21,7 @@ async def on_ready():
 bot.remove_command('help')
 
 @bot.command()
-async def creeper(ctx):
+async def when_mentioned(ctx):
     await ctx.send('Aww Man!')
 
 @bot.command()
