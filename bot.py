@@ -23,6 +23,11 @@ bot.remove_command('help')
 @bot.command()
 async def creeper(ctx):
     await ctx.send('Aww Man!')
+
+
+@bot.command()
+async def skeppy(ctx):
+    await ctx.send('https://www.google.com/search?q=skeppy&client=ms-android-samsung&source=android-browser&prmd=ivmn&source=lnms&tbm=isch&sa=X&ved=2ahUKEwiQ9J7Y8Y7kAhVptIsKHQTlA_IQ_AUoAXoECA8QAQ&biw=360&bih=520#imgrc=1RCh-cHZRE3wfM')
         
 @bot.command()
 async def ping(ctx):
