@@ -28,10 +28,10 @@ async def creeper(ctx):
 @bot.command()
 async def skeppy(ctx):
     embed= discord.Embed(
-    title="Skeppy", description ="Skeppys youtube pfp", colour=0x00FF00)
+    title="Skeppy", description ="Skeppys skin", colour=0x00FF00)
     embed.set_thumbnail(
-    url='https://www.google.com/search?q=skeppy&client=ms-android-samsung&source=android-browser&prmd=ivmn&source=lnms&tbm=isch&sa=X&ved=2ahUKEwiQ9J7Y8Y7kAhVptIsKHQTlA_IQ_AUoAXoECA8QAQ&biw=360&bih=520#imgrc=1RCh-cHZRE3wfM') 
-        
+    url='https://render.namemc.com/skin/3d/body.png?skin=4dcdab31a73412a0&model=classic&width=200&height=400') 
+    embed.add_field(name="skin", value="his skin", inline=False) 
 @bot.command()
 async def ping(ctx):
     embed = discord.Embed(colour=0x00FF00)
