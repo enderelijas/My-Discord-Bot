@@ -27,7 +27,7 @@ async def creeper(ctx):
 @bot.command()
 async def skeppy(ctx):
     embed = discord.Embed(color=0xAA00FF)
-    embed.set_image(url='https://www.google.com/search?q=skeppy&client=ms-android-samsung&source=android-browser&prmd=ivmn&source=lnms&tbm=isch&sa=X&ved=2ahUKEwiQ9J7Y8Y7kAhVptIsKHQTlA_IQ_AUoAXoECA8QAQ&biw=360&bih=520#imgrc=1RCh-cHZRE3wfM ')
+    embed.set_image(url='http://pm1.narvii.com/6520/4dc885884d90ef594cfd663171c482bb2b36f716_00.jpg')
     await ctx.send(embed=embed) 
 
 @bot.command()
