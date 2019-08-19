@@ -25,9 +25,9 @@ async def creeper(ctx):
     await ctx.send('Aww Man!')
 
 @bot.command()
-async def skeppy(ctx):
+async def yoshi(ctx):
     embed = discord.Embed(color=0xD5D5D5)
-    embed.set_image(url='http://pm1.narvii.com/6520/4dc885884d90ef594cfd663171c482bb2b36f716_00.jpg')
+    embed.set_image(url='https://images.app.goo.gl/usWTSWgUbnEUA4uZ8')
     await ctx.send(embed=embed) 
 
 @bot.command()
