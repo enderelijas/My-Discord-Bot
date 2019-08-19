@@ -24,6 +24,9 @@ bot.remove_command('help')
 async def creeper(ctx):
     await ctx.send('Aww Man!')
 
+@bot.command()
+ async def say(ctx, arg):
+ await ctx.send(arg) 
 
 @bot.command()
 async def skeppy(ctx):
