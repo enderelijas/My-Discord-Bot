@@ -79,7 +79,7 @@ async def help(ctx):
     await ctx.send(embed=embed)
 
     otherembed = discord.Embed(
-        title="Enderbot", description="Other Commands:", color=0x6D00A3)
+        title="Enderbot", description="Other Commands:", color=0x570082)
 
     otherembed.set_thumbnail(
         url='https://images.emojiterra.com/twitter/v12/512px/1f3d3.png')
@@ -88,7 +88,7 @@ async def help(ctx):
     otherembed.add_field(name="?add", value="Adds 2 numbers.", inline=False)
     otherembed.add_field(name="?multiply", value="Multiply 2 numbers.", inline=False)
     otherembed.add_field(name="?creeper", value="Aww Man!", inline=False)
-    otherembed.add_field(name=?yoshi", value="Displays a phat yoshi!", inline=False)
+    otherembed.add_field(name="?yoshi", value="Displays a phat yoshi!", inline=False)
     otherembed.set_footer(text=f"Request by {ctx.author}", icon_url=ctx.author.avatar_url)
 
     await ctx.send(embed=otherembed)
