@@ -88,6 +88,7 @@ async def help(ctx):
     otherembed.add_field(name="?add", value="Adds 2 numbers.", inline=False)
     otherembed.add_field(name="?multiply", value="Multiply 2 numbers.", inline=False)
     otherembed.add_field(name="?creeper", value="Aww Man!", inline=False)
+    otherembed.add_field(name=?yoshi", value="Displays a phat yoshi!", inline=False)
     otherembed.set_footer(text=f"Request by {ctx.author}", icon_url=ctx.author.avatar_url)
 
     await ctx.send(embed=otherembed)
