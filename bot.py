@@ -27,7 +27,7 @@ async def creeper(ctx):
 @bot.command()
 async def yoshi(ctx):
     embed = discord.Embed(color=0xD5D5D5)
-    embed.set_image(url='https://knowyourmeme.com/photos/1417391-fat-yoshi')
+    embed.set_image(url='https://www.google.com/url?sa=i&source=images&cd=&ved=2ahUKEwjgx4WVnKDkAhWcVBUIHQIfB6MQjRx6BAgBEAQ&url=https%3A%2F%2Fknowyourmeme.com%2Fphotos%2F1417391-fat-yoshi&psig=AOvVaw3TRJMPgRb5x1-IFuTFdhPC&ust=1566898025463712')
     await ctx.send(embed=embed) 
 
 @bot.command()
@@ -101,7 +101,7 @@ async def clear(ctx, amount: int):
 
 async def chng_pr():
     await bot.wait_until_ready()
-    await bot.change_presence(activity=discord.Activity(name="Pewdiepie", type=3), status='idle')  
+    await bot.change_presence(activity=discord.Activity(name="enderelijas", type=3), status='idle')  
 
 bot.loop.create_task(chng_pr())
 
