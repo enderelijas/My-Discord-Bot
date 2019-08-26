@@ -27,7 +27,7 @@ async def creeper(ctx):
 @bot.command()
 async def yoshi(ctx):
     embed = discord.Embed(color=0xD5D5D5)
-    embed.set_image(url='https://www.google.com/url?sa=i&source=images&cd=&ved=2ahUKEwjgx4WVnKDkAhWcVBUIHQIfB6MQjRx6BAgBEAQ&url=https%3A%2F%2Fknowyourmeme.com%2Fphotos%2F1417391-fat-yoshi&psig=AOvVaw3TRJMPgRb5x1-IFuTFdhPC&ust=1566898025463712')
+    embed.set_image(url='https://i.kym-cdn.com/photos/images/original/001/417/391/51f.gif')
     await ctx.send(embed=embed) 
 
 @bot.command()
