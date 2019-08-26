@@ -101,7 +101,8 @@ async def clear(ctx, amount: int):
 
 async def chng_pr():
     await bot.wait_until_ready()
-    await bot.change_presence(activity=discord.Activity(name="enderelijas", type=3), status='idle')  
+    await bot.change_presence(activity=discord.Activity(name="enderelijas", type=3), status='idle')
+    await bot.change_presence(activity=discord.Activity(name="?help", type=0), status='idle')  
 
 bot.loop.create_task(chng_pr())
 
