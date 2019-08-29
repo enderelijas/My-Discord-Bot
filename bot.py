@@ -27,14 +27,15 @@ async def creeper(ctx):
 @bot.command()
 async def party(ctx):
     embed = discord.Embed(color=0xD5D5D5)
-    embed.set_image(url='https://camo.githubusercontent.com/2ce95db00a154978a94ce5649c80e353f83c612d/68747470733a2f2f672e7265646469746d656469612e636f6d2f46326d53715263654e5162596457684161546f307879347552345178516c424d524659416e3178724b4b342e6769663f773d33323026733d6232643165353665383237333333373130343861376532623664363162376638.gif')
+    embed.set_image(url='https://i.redd.it/v16fke5bd32z.gif')
     await ctx.send(embed=embed)
 
 @bot.command()
 async def yoshi(ctx):
     embed = discord.Embed(color=0xD5D5D5)
     embed.set_image(url='https://i.kym-cdn.com/photos/images/original/001/417/391/51f.gif')
-    await ctx.send(embed=embed)     
+    await ctx.send(embed=embed)
+    await ctx.send('**__SO PHAT__**')
  
 @bot.command()
 async def ping(ctx):
