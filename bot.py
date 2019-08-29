@@ -23,6 +23,14 @@ bot.remove_command('help')
 @bot.command()
 async def creeper(ctx):
     await ctx.send('Aww Man!')
+    
+@bot.command()
+async def say(*, args):
+    output = ''
+    for word in args:
+        output += word
+        output += ' '
+    await bot.send(output) 
 
 @bot.command()
 async def party(ctx):
