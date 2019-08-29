@@ -43,6 +43,7 @@ async def ping(ctx):
     embed.add_field(name="Ping", value=f'🏓 {round(bot.latency * 1000 / 2)}ms')
     embed.set_footer(text=f"Request by {ctx.author}", icon_url=ctx.author.avatar_url)
     await ctx.send(embed=embed)
+    await ctx.send('*Heroku speed 😒*')
     
 @bot.command()
 #@commands.has_role(606479631909912578)
