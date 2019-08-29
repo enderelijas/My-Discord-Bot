@@ -31,7 +31,7 @@ async def yoshi(ctx):
     await ctx.send(embed=embed)
 
 @bot.command()
-async def yoshi(ctx):
+async def party(ctx):
     embed = discord.Embed(color=0xD5D5D5)
     embed.set_image(url='https://i.kym-cdn.com/photos/images/original/001/417/391/51f.gif')
     await ctx.send(embed=embed)     
