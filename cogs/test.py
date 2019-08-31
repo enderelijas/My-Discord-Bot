@@ -21,13 +21,13 @@ class MyCog(commands.Cog):
             await channel.send('test')
             self.index = 0
 
-    @commands.command
+    @commands.command(name='poll')
     async def test(self, ctx, *, reason=None):
-        if reason == 'yes':
+        if reason == 'on':
             self.printer.start()
             await ctx.send('Loop turned on!')
 
-        if reason == 'no':
+        if reason == 'off':
             self.printer.cancel()
             await ctx.send('Loop turned off!')
 
