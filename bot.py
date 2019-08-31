@@ -25,16 +25,12 @@ async def creeper(ctx):
     await ctx.send('Aww Man!')
     
 @bot.command()
-async def say(*, args):
+async def say(ctx, *, args):
     output = ''
     for word in args:
         output += word
         output += ' '
-    await bot.send(output) 
-    
-@task.loop(seconds=10)
-asyc def Test(ctx):
-    await ctx.send Test
+    await ctx.send(output)
 
 @bot.command()
 async def party(ctx):
@@ -126,6 +122,15 @@ async def chng_pr():
 
 bot.loop.create_task(chng_pr())
 
+for cog in os.listdir("cogs"):
+    if cog.endswith(".py") and not cog.startswith("_"):
+        try:
+            cog = f"cogs.{cog.replace('.py', '')}"
+            bot.load_extension(cog)
+        except Exception as e:
+            print(f"{cog} cannot be loaded.")
+            raise e
+
 @bot.event
 async def on_command_error(ctx, error):
     if isinstance(error, commands.CommandNotFound):
@@ -145,11 +150,6 @@ async def on_command_error(ctx, error):
                               colour=0xe73c24)
         await ctx.send(embed=embed)
         raise error
-
-@bot.event
-async def creeper(ctx):
-    if "creeper" in message.content:
-        await message.channel.send('aww man!')
         
 @bot.command()
 async def add(ctx, a: int, b: int):
