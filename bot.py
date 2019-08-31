@@ -31,6 +31,10 @@ async def say(*, args):
         output += word
         output += ' '
     await bot.send(output) 
+    
+@task.loop(seconds=10)
+asyc def Test(ctx):
+    await ctx.send Test
 
 @bot.command()
 async def party(ctx):
@@ -51,7 +55,7 @@ async def ping(ctx):
     embed.add_field(name="Ping", value=f'🏓 {round(bot.latency * 1000 / 2)}ms')
     embed.set_footer(text=f"Request by {ctx.author}", icon_url=ctx.author.avatar_url)
     await ctx.send(embed=embed)
-    await ctx.send('*Heroku speed 😒*')
+    await ctx.send('*Heroku speeds 😒*')
     
 @bot.command()
 #@commands.has_role(606479631909912578)
