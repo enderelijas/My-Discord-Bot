@@ -128,13 +128,13 @@ async def chng_pr():
 bot.loop.create_task(chng_pr())
 
 @bot.command()
-@commands.has_role(570912164051812352)
+@commands.has_role(567739987861307413)
 async def load(ctx, extension):
     bot.load_extension(f'cogs.{extension}')
     await ctx.send('Cog Loaded!')
 
 @bot.command()
-@commands.has_role(570912164051812352)
+@commands.has_role(567739987861307413)
 async def unload(ctx, extension):
     bot.unload_extension(f'cogs.{extension}')
     await ctx.send('Cog Unloaded!')
@@ -152,7 +152,7 @@ for cog in os.listdir("cogs"):
 async def on_command_error(ctx, error):
     if isinstance(error, commands.CommandNotFound):
         embed = discord.Embed(title="Error:",
-                              description=f"The command `{ctx.invoked_with}` was not found! We suggest you do `?help` to see all of the commands",
+                              description=f"The command `{ctx.invoked_with}` was not found! We suggest you do `help` to see all of the commands",
                               colour=0xe73c24)
         await ctx.send(embed=embed)
     elif isinstance(error, commands.MissingRole):
