@@ -67,7 +67,7 @@ async def ban(ctx, member: discord.Member, *, reason='No reason provided.'):
     await ctx.message.delte()  # Delete The Message
     await ctx.send('member has been banned.')
     
-@bot.command():
+@bot.command()
 async def dm(ctx)
 await member.send ('Hello') 
 
