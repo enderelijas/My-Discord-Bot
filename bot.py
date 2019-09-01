@@ -107,7 +107,7 @@ async def help(ctx):
     otherembed.add_field(name="?creeper", value="Aww Man!", inline=False)
     otherembed.add_field(name="?yoshi", value="Displays a phat yoshi!", inline=False)
     otherembed.add_field(
-        name="?yoshi", value="It's party time!", inline=False)
+        name="?party", value="It's party time!", inline=False)
     otherembed.set_footer(text=f"Request by {ctx.author}", icon_url=ctx.author.avatar_url)
 
     await ctx.message.add_reaction('📧')
