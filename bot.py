@@ -37,6 +37,7 @@ async def party(ctx):
     embed = discord.Embed(color=0xD5D5D5)
     embed.set_image(url='https://i.redd.it/v16fke5bd32z.gif')
     await ctx.send(embed=embed)
+    await ctx.message.delete() 
 
 @bot.command()
 async def yoshi(ctx):
@@ -66,6 +67,10 @@ async def ban(ctx, member: discord.Member, *, reason='No reason provided.'):
     await ctx.message.delte()  # Delete The Message
     await ctx.send('member has been banned.')
     
+@bot.command():
+async def dm(ctx)
+await member.send ('Hello') 
+
 @bot.command()
 #@commands.has_role(606479631909912578)
 async def kick(ctx, member: discord.Member, *, reason='No reason provided.'):
