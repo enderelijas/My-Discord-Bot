@@ -69,7 +69,9 @@ async def ban(ctx, member: discord.Member, *, reason='No reason provided.'):
     
 @bot.command()
 async def dm(ctx)
-await member.send ('Hello') 
+    dm = discord.Embed(title="Hello", color=0xAA00FF) 
+    dm.add_field(name="Help command", value=This may be the future help command)
+    await member.send(embed=dm)
 
 @bot.command()
 #@commands.has_role(606479631909912578)
