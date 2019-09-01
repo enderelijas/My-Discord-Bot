@@ -66,13 +66,6 @@ async def ban(ctx, member: discord.Member, *, reason='No reason provided.'):
     await member.ban(reason=reason)  # Ban
     await ctx.message.delte()  # Delete The Message
     await ctx.send('member has been banned.')
-    
-@bot.command()
-async def dm(ctx):
-    await ctx.message.add_reaction('📧')
-    embed = discord.Embed(title="Hello", color=0xAA00FF) 
-    embed.add_field(name="Help command", value='This may be the future help command')
-    await ctx.author.send(embed=embed)
 
 @bot.command()
 #@commands.has_role(606479631909912578)
@@ -100,7 +93,7 @@ async def help(ctx):
     embed.add_field(
         name="?clear", value="Clears the amount of messages that you specified in.", inline=False)
     
-    await ctx.send(embed=embed)
+    await ctx.author.send(embed=embed)
 
     otherembed = discord.Embed(
         title="Enderbot", description="Other Commands:", color=0x570082)
@@ -113,9 +106,13 @@ async def help(ctx):
     otherembed.add_field(name="?multiply", value="Multiply 2 numbers.", inline=False)
     otherembed.add_field(name="?creeper", value="Aww Man!", inline=False)
     otherembed.add_field(name="?yoshi", value="Displays a phat yoshi!", inline=False)
+    otherembed.add_field(
+        name="?yoshi", value="It's party time!", inline=False)
     otherembed.set_footer(text=f"Request by {ctx.author}", icon_url=ctx.author.avatar_url)
 
-    await ctx.send(embed=otherembed)
+    await ctx.message.add_reaction('📧')
+    await ctx.send("A message has been sent to your DMs.")
+    await ctx.author.send(embed=otherembed)
 
 @bot.command()
 @commands.has_role(567737541546082304)
