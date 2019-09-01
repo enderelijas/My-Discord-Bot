@@ -108,9 +108,6 @@ async def help(ctx):
     otherembed.set_thumbnail(
         url='https://images.emojiterra.com/twitter/v12/512px/1f3d3.png')
     otherembed.add_field(name="?ping", value="Pings the bot.", inline=False)
-    otherembed.add_field(name="?test on", value="Turns on a test", inline=False)
-    otherembed.add_field(
-        name="?test off", value="Turns off a test", inline=False)
     otherembed.add_field(name="?help", value="Gives this message.", inline=False)
     otherembed.add_field(name="?add", value="Adds 2 numbers.", inline=False)
     otherembed.add_field(name="?multiply", value="Multiply 2 numbers.", inline=False)
@@ -136,12 +133,10 @@ bot.loop.create_task(chng_pr())
 @bot.command()
 async def test_on(ctx, extension):
     bot.load_extension(f'cogs.{extension}')
-    await ctx.send('The test is now turned off!')
 
 @bot.command()
 async def test_off(ctx, extension):
     bot.unload_extension(f'cogs.{extension}')
-    await ctx.send('The test is now turned on!')
 
 for cog in os.listdir("cogs"):
     if cog.endswith(".py") and not cog.startswith("_"):
