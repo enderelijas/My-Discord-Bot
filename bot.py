@@ -33,7 +33,6 @@ async def say(ctx, *, args):
     await ctx.send(output)
 
 @bot.command()
-#@commands.has_role(617725055442354176)
 async def party(ctx):
     embed = discord.Embed(color=0xD5D5D5)
     embed.set_image(url='https://i.redd.it/v16fke5bd32z.gif')
@@ -46,7 +45,6 @@ async def yoshi(ctx):
     embed.set_image(url='https://i.kym-cdn.com/photos/images/original/001/417/391/51f.gif')
     await ctx.send(embed=embed)
     await ctx.send('**__SO PHAT__**')
-    await ctx.message.delete() 
  
 @bot.command()
 async def ping(ctx):
@@ -57,7 +55,7 @@ async def ping(ctx):
     await ctx.send('*Heroku speeds 😒*')
     
 @bot.command()
-#@commands.has_role(606479631909912578)
+@commands.has_role(570912164051812352)
 async def ban(ctx, member: discord.Member, *, reason='No reason provided.'):
     dm = discord.Embed(title="You have been banned from `Ender Network`!", color=0xAA00FF)
     dm.add_field(name="Moderator:",
@@ -70,7 +68,7 @@ async def ban(ctx, member: discord.Member, *, reason='No reason provided.'):
     await ctx.send('member has been banned.')
 
 @bot.command()
-#@commands.has_role(606479631909912578)
+@commands.has_role(570912164051812352)
 async def kick(ctx, member: discord.Member, *, reason='No reason provided.'):
     dm = discord.Embed(title="You have been kicked from `Ender Network`!", color=0xAA00FF)
     dm.set_thumbnail(url=member.avatar_url)
@@ -117,7 +115,7 @@ async def help(ctx):
     await ctx.author.send(embed=otherembed)
 
 @bot.command()
-@commands.has_role(567737541546082304)
+@commands.has_role(570912164051812352)
 async def clear(ctx, amount: int):
     """Clears the amount of messages that you filled in."""
     await ctx.channel.purge(limit=amount + 1)
