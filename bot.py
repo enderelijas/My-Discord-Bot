@@ -31,6 +31,7 @@ async def say(ctx, *, args):
         output += word
         output += ''
     await ctx.send(output)
+    await ctx.message.delete() 
 
 @bot.command()
 async def party(ctx):
