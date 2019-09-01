@@ -17,7 +17,7 @@ class MyCog(commands.Cog):
         print(self.index)
         self.index += 1
         if self.index == 10:
-            channel = self.bot.get_channel(607205666754658324)
+            channel = self.bot.get_channel(613426733424836653)
             await channel.send('test')
             self.index = 0
 
