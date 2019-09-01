@@ -33,6 +33,7 @@ async def say(ctx, *, args):
     await ctx.send(output)
 
 @bot.command()
+#@commands.has_role(567739987861307413)
 async def party(ctx):
     embed = discord.Embed(color=0xD5D5D5)
     embed.set_image(url='https://i.redd.it/v16fke5bd32z.gif')
@@ -45,6 +46,7 @@ async def yoshi(ctx):
     embed.set_image(url='https://i.kym-cdn.com/photos/images/original/001/417/391/51f.gif')
     await ctx.send(embed=embed)
     await ctx.send('**__SO PHAT__**')
+    await ctx.message.delete() 
  
 @bot.command()
 async def ping(ctx):
