@@ -21,19 +21,6 @@ class MyCog(commands.Cog):
             await channel.send('test')
             self.index = 0
 
-    @commands.command(name='poll')
-    async def test(self, ctx, *, reason=None):
-        if reason == 'on':
-            self.printer.start()
-            await ctx.send('Loop turned on!')
-
-        if reason == 'off':
-            self.printer.cancel()
-            await ctx.send('Loop turned off!')
-
-        else:
-            await ctx.send('Please do `?test yes` or `?test no` to turn it off or on.')
-
     @printer.before_loop
     async def before_printer(self):
         print('waiting...')

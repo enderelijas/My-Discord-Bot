@@ -68,10 +68,11 @@ async def ban(ctx, member: discord.Member, *, reason='No reason provided.'):
     await ctx.send('member has been banned.')
     
 @bot.command()
-async def dm(ctx)
-    dm = discord.Embed(title="Hello", color=0xAA00FF) 
-    dm.add_field(name="Help command", value=This may be the future help command)
-    await member.send(embed=dm)
+async def dm(ctx):
+    await ctx.message.add_reaction('📧')
+    embed = discord.Embed(title="Hello", color=0xAA00FF) 
+    embed.add_field(name="Help command", value='This may be the future help command')
+    await ctx.author.send(embed=embed)
 
 @bot.command()
 #@commands.has_role(606479631909912578)
@@ -131,6 +132,16 @@ async def chng_pr():
     await bot.change_presence(activity=discord.Activity(name="?help", type=0), status='idle')  
 
 bot.loop.create_task(chng_pr())
+
+@bot.command()
+async def test_on(ctx, extension):
+    bot.load_extension(f'cogs.{extension}')
+    await ctx.send('The test is now turned off!')
+
+@bot.command()
+async def test_off(ctx, extension):
+    bot.unload_extension(f'cogs.{extension}')
+    await ctx.send('The test is now turned on!')
 
 for cog in os.listdir("cogs"):
     if cog.endswith(".py") and not cog.startswith("_"):
