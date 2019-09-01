@@ -99,7 +99,7 @@ async def help(ctx):
         title="Enderbot", description="Other Commands:", color=0x570082)
 
     otherembed.set_thumbnail(
-        url='https://images.emojiterra.com/twitter/v12/512px/1f3d3.png')
+        url='https://i.redd.it/v16fke5bd32z.gif')
     otherembed.add_field(name="?ping", value="Pings the bot.", inline=False)
     otherembed.add_field(name="?help", value="Gives this message.", inline=False)
     otherembed.add_field(name="?add", value="Adds 2 numbers.", inline=False)
