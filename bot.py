@@ -29,7 +29,7 @@ async def say(ctx, *, args):
     output = ''
     for word in args:
         output += word
-        output += ' '
+        output += ''
     await ctx.send(output)
 
 @bot.command()
