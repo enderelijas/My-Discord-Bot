@@ -25,7 +25,7 @@ async def on_member_join(member):
     await channel.send(f"Welcome to the server, {member}. We now have {len(list(bot.get_all_members()))} members.")
 
 @bot.event
-async def on_member_leave(member):
+async def on_member_remove(member):
     channel = bot.get_channel(572461545066594314)
     await channel.send(f"{member} has left the server. We now have {len(list(bot.get_all_members()))} members.")
     
