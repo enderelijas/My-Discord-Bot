@@ -121,11 +121,20 @@ async def clear(ctx, amount: int):
     """Clears the amount of messages that you filled in."""
     await ctx.channel.purge(limit=amount + 1)
     
- status = cycle(['?help', 'with perms', 'Minecraft', 'with Users'])
-    
-@tasks.loop(seconds=15)
-async def change_status():
-    await client.change_presence(activity=discord.Game(next(status)))
+async def chng_pr():
+    await bot.wait_until_ready()
+
+    statuses = ["?help", "with perms", "Minecraft", f"with {len(list(bot.get_all_members()))} users"]
+    statuses = cycle(statuses)
+
+    while not bot.is_closed():
+        status = next(statuses)
+
+        await bot.change_presence(activity=discord.Game(status))
+
+        await asyncio.sleep(5)
+
+bot.loop.create_task(chng_pr())
 
 @bot.command()
 @commands.has_role(567739987861307413)
