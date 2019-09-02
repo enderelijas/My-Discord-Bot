@@ -22,7 +22,12 @@ async def on_ready():
 @bot.event
 async def on_member_join(member):
     channel = bot.get_channel(572461545066594314)
-    await channel.send(f"Welcome to the server, {member}. We now have {len(list(bot.get_all_members()))} members.".format(member.mention))
+    await channel.send(f"Welcome to the server, {member}. We now have {len(list(bot.get_all_members()))} members.")
+
+@bot.event
+async def on_member_leave(member):
+    channel = bot.get_channel(572461545066594314)
+    await channel.send(f"{member} has left the server. We now have {len(list(bot.get_all_members()))} members.")
     
 bot.remove_command('help')
 
