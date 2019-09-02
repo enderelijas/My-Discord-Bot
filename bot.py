@@ -130,7 +130,7 @@ async def chng_pr():
     while not bot.is_closed():
         status = next(statuses)
 
-        await bot.change_presence(activity=discord.Game(status), status='dnd')
+        await bot.change_presence(activity=discord.Game(status), status='idle')
 
         await asyncio.sleep(5)
 
