@@ -148,13 +148,15 @@ async def chng_pr():
 bot.loop.create_task(chng_pr())
 
 @bot.command()
-@commands.has_role(567739987861307413)
+@commands.has_any_role(567739987861307413, 567737541546082304)
+#@commands.has_role(567739987861307413)
 async def load(ctx, extension):
     bot.load_extension(f'cogs.{extension}')
     await ctx.send('Cog Loaded!')
 
 @bot.command()
-@commands.has_role(567739987861307413)
+@commands.has_any_role(567739987861307413, 567737541546082304)
+#@commands.has_role(567739987861307413)
 async def unload(ctx, extension):
     bot.unload_extension(f'cogs.{extension}')
     await ctx.send('Cog Unloaded!')
