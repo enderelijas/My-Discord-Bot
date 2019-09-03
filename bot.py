@@ -103,6 +103,22 @@ async def kick(ctx, member: discord.Member, *, reason='No reason provided.'):
         await ctx.send('member has been kicked.')
 
 @bot.command()
+async def invite(ctx):
+    embed = discord.Embed(
+        title="EnderBot", description="Invite me here:", color=0x00FF00)
+
+    embed.add_field(
+        name="Support Server", value="[Invite link](https://discord.gg/n8AmFXB)", inline=False)
+
+    embed.add_field(
+        name="Website", value="[Link](https://enderelijas.tk)", inline=False)
+
+    embed.set_footer(
+        text=f"Request by {ctx.author}", icon_url=ctx.author.avatar_url)
+
+    await ctx.send(embed=embed)
+        
+@bot.command()
 async def help(ctx):
     embed = discord.Embed(
         title="Enderbot", description="Moderation Commands:", color=0x6D00A3)
@@ -124,6 +140,7 @@ async def help(ctx):
         url='https://i.redd.it/v16fke5bd32z.gif')
     otherembed.add_field(name="?ping", value="Pings the bot.", inline=False)
     otherembed.add_field(name="?help", value="Gives this message.", inline=False)
+    otherembed.add_field(name="?info", value="Gives info about the bot.", inline=False)
     otherembed.add_field(name="?add", value="Adds 2 numbers.", inline=False)
     otherembed.add_field(name="?multiply", value="Multiply 2 numbers.", inline=False)
     otherembed.add_field(name="?creeper", value="Aww Man!", inline=False)
