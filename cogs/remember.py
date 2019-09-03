@@ -19,7 +19,7 @@ class MyCog(commands.Cog):
         if self.index == 5:
             channel = self.bot.get_channel(613426733424836653)
             general = self.bot.get_channel(613426184025407549)
-            await channel.send(f'Remember to spam here not in {general}')
+            await channel.send('Remember to spam here not in {1.mention}'.format(text_channel))
             self.index = 0
 
     @printer.before_loop
