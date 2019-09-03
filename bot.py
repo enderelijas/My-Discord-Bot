@@ -69,28 +69,38 @@ async def ping(ctx):
 @bot.command()
 @commands.has_role(570912164051812352)
 async def ban(ctx, member: discord.Member, *, reason='No reason provided.'):
-    dm = discord.Embed(title="You have been banned from `Ender Network`!", color=0xAA00FF)
-    dm.add_field(name="Moderator:",
-                    value=ctx.message.author.display_name)
-    dm.add_field(name="Reason:", value=f"{reason}")
-    dm.set_thumbnail(url=member.avatar_url)
-    await member.send(embed=dm)  # Send DM
-    await member.ban(reason=reason)  # Ban
-    await ctx.message.delete()  # Delete The Message
-    await ctx.send('member has been banned.')
+    if member.bot == True:
+        await member.ban(reason=reason)
+        await ctx.message.delete()
+        await ctx.send(f'{member} has been banned.')
+    else:
+        dm = discord.Embed(title="You have been banned from `Ender Network`!", color=0xAA00FF)
+        dm.add_field(name="Moderator:",
+                        value=ctx.message.author.display_name)
+        dm.add_field(name="Reason:", value=f"{reason}")
+        dm.set_thumbnail(url=member.avatar_url)
+        await member.send(embed=dm)  # Send DM
+        await member.ban(reason=reason)  # Ban
+        await ctx.message.delete()  # Delete The Message
+        await ctx.send('member has been banned.')
 
 @bot.command()
 @commands.has_role(570912164051812352)
 async def kick(ctx, member: discord.Member, *, reason='No reason provided.'):
-    dm = discord.Embed(title="You have been kicked from `Ender Network`!", color=0xAA00FF)
-    dm.set_thumbnail(url=member.avatar_url)
-    dm.add_field(name="Reason:", value=f"{reason}")
-    dm.add_field(name="Moderator:",
-                    value=ctx.message.author.display_name)
-    await member.send(embed=dm)  # Send DM
-    await member.kick(reason=reason)  # Kick
-    await ctx.message.delete()  # Delete The Message
-    await ctx.send('member has been kicked.')
+    if member.bot == True:
+        await member.kick(reason=reason)
+        await ctx.message.delete()
+        await ctx.send(f'{member} has been kicked.')
+    else:
+        dm = discord.Embed(title="You have been kicked from `Ender Network`!", color=0xAA00FF)
+        dm.set_thumbnail(url=member.avatar_url)
+        dm.add_field(name="Reason:", value=f"{reason}")
+        dm.add_field(name="Moderator:",
+                        value=ctx.message.author.display_name)
+        await member.send(embed=dm)  # Send DM
+        await member.kick(reason=reason)  # Kick
+        await ctx.message.delete()  # Delete The Message
+        await ctx.send('member has been kicked.')
 
 @bot.command()
 async def help(ctx):
