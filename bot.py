@@ -105,7 +105,7 @@ async def kick(ctx, member: discord.Member, *, reason='No reason provided.'):
 @bot.command()
 async def links(ctx):
     embed = discord.Embed(
-        title="EnderBot", description="links", color=0x00FF00)
+        title="EnderBot", description="links", color=0xa5a5ed)
 
     embed.add_field(
         name="Support Server", value="[Invite link](https://discord.gg/n8AmFXB)", inline=False)
