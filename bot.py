@@ -170,7 +170,7 @@ async def chng_pr():
 
         await bot.change_presence(activity=discord.Game(status), status='dnd')
 
-        await asyncio.sleep(5)
+        await asyncio.sleep(15)
 
 bot.loop.create_task(chng_pr())
 
