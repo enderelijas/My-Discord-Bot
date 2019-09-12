@@ -65,7 +65,14 @@ async def ping(ctx):
     embed.set_footer(text=f"Request by {ctx.author}", icon_url=ctx.author.avatar_url)
     await ctx.send(embed=embed)
     await ctx.send('*Heroku speeds 😒*')
-    
+ 
+@bot.command()
+async def Minecraft(ctx):
+    embed = discord.Embed(colour=0x00FF00)
+    embed.add_field(name="Minecraft", value="A really popular sandbox game made by Notch")
+    embed.add_filed(name="Wikipeadia", value="https://en.wikipedia.org/wiki/Minecraft")
+    await ctx.send(embed=embed)
+
 @bot.command()
 @commands.has_role(570912164051812352)
 async def ban(ctx, member: discord.Member, *, reason='No reason provided.'):
