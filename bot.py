@@ -94,7 +94,8 @@ async def ban(ctx, member: discord.Member, *, reason='No reason provided.'):
         await ctx.send('member has been banned.')
 
 @bot.command()
-async def Thonk(ctx):
+async def thonk(ctx):
+    embed = discord.Embed(colour=0xD5D5D5)
     embed.set_image(url='https://cdn.discordapp.com/emojis/616954827465031709.png?v=1')
     await ctx.send (embed=embed)
         
