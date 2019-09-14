@@ -44,7 +44,7 @@ bot.remove_command('help')
 
 @bot.command()
 async def thonk(ctx):
-    embed = discord.Embed(colour=0x00FF00)
+    embed = discord.Embed(colour=0xD5D5D5)
     embed.set_image(url='https://cdn.discordapp.com/emojis/616954827465031709.png?v=1')
     await ctx.send(embed=embed)
 
