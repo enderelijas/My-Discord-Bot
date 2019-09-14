@@ -1,5 +1,6 @@
 import discord
 from discord.ext import tasks, commands
+import random
 
 
 class MyCog(commands.Cog):
@@ -16,10 +17,9 @@ class MyCog(commands.Cog):
     async def printer(self):
         print(self.index)
         self.index += 1
-        if self.index == 5:
+        if self.index == 30:
             channel = self.bot.get_channel(613426733424836653)
-            general = self.bot.get_channel(613426184025407549)
-            await channel.send('Remember to spam here not in {1.mention}'.format(text_channel))
+            await channel.send("Remember to spam here not in <#613426184025407549>")
             self.index = 0
 
     @printer.before_loop
