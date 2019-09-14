@@ -69,6 +69,8 @@ async def ping(ctx):
 @bot.command()
 async def Minecraft(ctx):
     embed = discord.Embed(colour=0x00FF00)
+    embed.set_thumbnail(
+        url='https://gamepedia.cursecdn.com/minecraft_gamepedia/4/44/Grass_Block_Revision_6.png')
     embed.add_field(name="Minecraft", value="A really popular sandbox game made by Notch")
     embed.add_filed(name="Wikipeadia", value="https://en.wikipedia.org/wiki/Minecraft")
     await ctx.send(embed=embed)
@@ -91,6 +93,11 @@ async def ban(ctx, member: discord.Member, *, reason='No reason provided.'):
         await ctx.message.delete()  # Delete The Message
         await ctx.send('member has been banned.')
 
+@bot.command()
+async def Thonk(ctx):
+    embed.set_image(url='https://cdn.discordapp.com/emojis/616954827465031709.png?v=1')
+    await ctx.send (embed=embed)
+        
 @bot.command()
 @commands.has_role(570912164051812352)
 async def kick(ctx, member: discord.Member, *, reason='No reason provided.'):
@@ -152,8 +159,9 @@ async def help(ctx):
     otherembed.add_field(name="?multiply", value="Multiply 2 numbers.", inline=False)
     otherembed.add_field(name="?creeper", value="Aww Man!", inline=False)
     otherembed.add_field(name="?yoshi", value="Displays a phat yoshi!", inline=False)
-    otherembed.add_field(
-        name="?party", value="It's party time!", inline=False)
+    otherembed.add_field(name="?party", value="It's party time!", inline=False)
+    otherembed.add_field(name="?minecraft", value="Gets info about Minecraft", inline=False)
+    otherembed.add_field(name="?load test", value="Makes the bot spam", inline=False)
     otherembed.set_footer(text=f"Request by {ctx.author}", icon_url=ctx.author.avatar_url)
 
     await ctx.message.add_reaction('📧')
