@@ -11,6 +11,7 @@ bot = commands.Bot(when_mentioned_or("?"))
 
 @bot.event
 async def on_ready():
+    bot.unload_extension('cogs.test')
     print("--------------------")
     print('Logged in as')
     print(bot.user.name)
@@ -18,18 +19,43 @@ async def on_ready():
     print('--------------------')
     return
 
+@bot.event
+async def on_message(message):
+  if isinstance(message.channel, discord.DMChannel):
+    embed = discord.Embed(colour=0xa5a5ed)
+    hi = message.content
+    member = message.author
+    logchannel = bot.get_channel(616003171583787013)
+    embed.add_field(name=f'There was DM sent from {member} to the bot!', value=hi)
+    await logchannel.send(embed=embed)
+  await bot.process_commands(message)
 
 @bot.event
 async def on_member_join(member):
     channel = bot.get_channel(572461545066594314)
-    await channel.send(f"Welcome to the server, {member}. We now have {len(list(bot.get_all_members()))} members.")
+    await channel.send(f"Welcome to the server, {member.mention}. We now have {len(list(bot.get_all_members()))} members.")
 
 @bot.event
 async def on_member_remove(member):
     channel = bot.get_channel(572461545066594314)
-    await channel.send(f"{member} has left the server. We now have {len(list(bot.get_all_members()))} members.")
+    await channel.send(f"{member.mention} has left the server. We now have {len(list(bot.get_all_members()))} members.")
     
 bot.remove_command('help')
+
+@bot.command()
+async def thonk(ctx):
+    embed = discord.Embed(colour=0x00FF00)
+    embed.set_image(url='https://cdn.discordapp.com/emojis/616954827465031709.png?v=1')
+    await ctx.send(embed=embed)
+
+@bot.command()
+async def minecraft(ctx):
+    embed = discord.Embed(colour=0x00FF00)
+    embed.add_field(name="Minecraft", value="A really popular sandbox game made by Notch")
+    embed.add_field(name="Wikipeadia", value="https://en.wikipedia.org/wiki/Minecraft")
+    embed.set_thumbnail(
+        url='https://gamepedia.cursecdn.com/minecraft_gamepedia/4/44/Grass_Block_Revision_6.png')
+    await ctx.send(embed=embed)
 
 @bot.command()
 async def creeper(ctx):
@@ -64,17 +90,7 @@ async def ping(ctx):
     embed.add_field(name="Ping", value=f'🏓 {round(bot.latency * 1000)}ms')
     embed.set_footer(text=f"Request by {ctx.author}", icon_url=ctx.author.avatar_url)
     await ctx.send(embed=embed)
-    await ctx.send('*Heroku speeds 😒*')
- 
-@bot.command()
-async def Minecraft(ctx):
-    embed = discord.Embed(colour=0x00FF00)
-    embed.set_thumbnail(
-        url='https://gamepedia.cursecdn.com/minecraft_gamepedia/4/44/Grass_Block_Revision_6.png')
-    embed.add_field(name="Minecraft", value="A really popular sandbox game made by Notch")
-    embed.add_filed(name="Wikipeadia", value="https://en.wikipedia.org/wiki/Minecraft")
-    await ctx.send(embed=embed)
-
+    
 @bot.command()
 @commands.has_role(570912164051812352)
 async def ban(ctx, member: discord.Member, *, reason='No reason provided.'):
@@ -93,12 +109,6 @@ async def ban(ctx, member: discord.Member, *, reason='No reason provided.'):
         await ctx.message.delete()  # Delete The Message
         await ctx.send('member has been banned.')
 
-@bot.command()
-async def thonk(ctx):
-    embed = discord.Embed(colour=0xD5D5D5)
-    embed.set_image(url='https://cdn.discordapp.com/emojis/616954827465031709.png?v=1')
-    await ctx.send (embed=embed)
-        
 @bot.command()
 @commands.has_role(570912164051812352)
 async def kick(ctx, member: discord.Member, *, reason='No reason provided.'):
@@ -132,7 +142,7 @@ async def links(ctx):
         text=f"Request by {ctx.author}", icon_url=ctx.author.avatar_url)
 
     await ctx.send(embed=embed)
-        
+
 @bot.command()
 async def help(ctx):
     embed = discord.Embed(
@@ -158,11 +168,12 @@ async def help(ctx):
     otherembed.add_field(name="?links", value="Gives some links of the bot.", inline=False)
     otherembed.add_field(name="?add", value="Adds 2 numbers.", inline=False)
     otherembed.add_field(name="?multiply", value="Multiply 2 numbers.", inline=False)
+    otherembed.add_field(name="?minecraft", value="Gives information about Minecraft", inline=False)
+    otherembed.add_field(name="?thonk", value="Thonks.", inline=False)
     otherembed.add_field(name="?creeper", value="Aww Man!", inline=False)
     otherembed.add_field(name="?yoshi", value="Displays a phat yoshi!", inline=False)
-    otherembed.add_field(name="?party", value="It's party time!", inline=False)
-    otherembed.add_field(name="?minecraft", value="Gets info about Minecraft", inline=False)
-    otherembed.add_field(name="?load test", value="Makes the bot spam", inline=False)
+    otherembed.add_field(
+        name="?party", value="It's party time!", inline=False)
     otherembed.set_footer(text=f"Request by {ctx.author}", icon_url=ctx.author.avatar_url)
 
     await ctx.message.add_reaction('📧')
@@ -242,5 +253,6 @@ async def add(ctx, a: int, b: int):
 async def multiply(ctx, a: int, b: int):
     """Multiplies 2 numbers."""
     await ctx.send(a*b)
-        
-bot.run(os.getenv('TOKEN'))
+
+TOKEN = os.environ.get("DISCORD_BOT_SECRET")
+bot.run(TOKEN)
