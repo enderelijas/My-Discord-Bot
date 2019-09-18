@@ -56,6 +56,15 @@ async def minecraft(ctx):
     embed.set_thumbnail(
         url='https://gamepedia.cursecdn.com/minecraft_gamepedia/4/44/Grass_Block_Revision_6.png')
     await ctx.send(embed=embed)
+    
+@bot.command()
+async def minecraft(ctx):
+    embed = discord.Embed(colour=0x00FF00)
+    embed.add_field(name="Subnautica", value="A underwater survival game with amazing graphics")
+    embed.add_field(name="Wikipeadia", value="https://en.wikipedia.org/wiki/Subnautica")
+    embed.set_thumbnail(
+        url='https://i.redd.it/ue5eytpe0o801.jpg')
+    await ctx.send(embed=embed)
 
 @bot.command()
 async def creeper(ctx):
